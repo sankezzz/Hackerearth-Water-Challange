@@ -1,0 +1,37 @@
+Title: Smart Water Consumption Prediction using XGBoost
+
+Approach:
+We approached this regression problem using the XGBoost algorithm, known for its performance and ability to handle both linear and non-linear relationships. We applied proper preprocessing and feature engineering to maximize predictive power.
+
+Tools Used:
+- Python 3
+- pandas
+- numpy
+- scikit-learn
+- XGBoost (xgboost)
+- Jupyter Notebook (for experimentation)
+
+Feature Engineering:
+- Parsed the Timestamp field into multiple temporal features:
+  - Hour of the day
+  - Day of the month
+  - Month of the year
+  - Weekday (0=Monday, 6=Sunday)
+- Dropped the original timestamp field after extracting features.
+- Handled missing values using `SimpleImputer`:
+  - Mean imputation for numerical fields
+  - Most frequent imputation for categorical fields
+- One-hot encoding of categorical variables
+
+Model:
+- XGBoost Regressor with:
+  - `n_estimators=200`
+  - `learning_rate=0.05`
+  - `random_state=42`
+- Trained using a pipeline with preprocessing steps included.
+
+Output:
+- `submission_xag.csv` containing the predictions of water consumption.
+
+Author: Sanket Suryawanshi
+GitHub: https://github.com/sankezzz
